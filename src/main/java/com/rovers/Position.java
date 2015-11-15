@@ -30,18 +30,18 @@ public class Position {
     public void move() {
         switch (direction) {
             case NORTH:
-                    y.moveForward();
+                y.moveForward();
                 break;
             case SOUTH:
-                    y.moveBackward();
+                y.moveBackward();
                 break;
             case EAST:
-                    x.moveForward();
+                x.moveForward();
                 break;
             case WEST:
-                    x.moveBackward();
+                x.moveBackward();
                 break;
-        }
+            }
     }
 
     /**
@@ -51,12 +51,12 @@ public class Position {
     public void turnLeft() {
         changeDirection(-1);
     }
-    
+
     /**
      * Turn right
      * Changes the direction a clockwise manner
      */
-    public void trunRight(){
+    public void trunRight() {
         changeDirection(+1);
     }
 
@@ -65,13 +65,12 @@ public class Position {
      * (N:0 E:1 S:2 W:3) and change the direction by direction shift 
      * @param positionShift
      */
-    private void changeDirection(int positionShift){
+    private void changeDirection(int positionShift) {
         int directionsCount = Direction.values().length;
         int newPosition = (directionsCount + direction.getNumericPoisition() + positionShift) % directionsCount;
         this.direction = Direction.values()[newPosition];
     }
-    
-    
+
     /**
      * Get point x
      * @return point x
@@ -119,7 +118,7 @@ public class Position {
     public void setDirection(Direction head) {
         this.direction = head;
     }
-    
+
     @Override
     public String toString() {
         return x.getLocation() + " " + y.getLocation() + " " + direction.getDirection();
